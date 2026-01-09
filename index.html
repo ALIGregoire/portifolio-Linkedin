@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Portfolio | [VOTRE PRÉNOM] [VOTRE NOM] - Économiste & Analyste
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-dark: #0f172a;
+        --bg-card: rgba(30, 41, 59, 0.7);
+        --primary: #38bdf8;
+        --accent: #fbbf24;
+        --accent-secondary: #10b981;
+        --text-main: #f1f5f9;
+        --text-dim: #94a3b8;
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 800;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* --- BACKGROUND SHAPES --- */
+      .blob {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: linear-gradient(
+          135deg,
+          rgba(56, 189, 248, 0.2) 0%,
+          rgba(251, 191, 36, 0.1) 100%
+        );
+        filter: blur(80px);
+        border-radius: 50%;
+        z-index: -1;
+        top: -100px;
+        right: -100px;
+      }
+
+      .blob-2 {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(
+          135deg,
+          rgba(16, 185, 129, 0.15) 0%,
+          rgba(56, 189, 248, 0.1) 100%
+        );
+        filter: blur(60px);
+        border-radius: 50%;
+        z-index: -1;
+        bottom: 100px;
+        left: -100px;
+      }
+
+      /* --- NAVIGATION --- */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.5rem 0;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(12px);
+        z-index: 1000;
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--primary);
+        text-decoration: none;
+        letter-spacing: -1px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-dim);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-main);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* --- HERO SECTION --- */
+      .hero {
+        padding: 12rem 0 6rem;
+        display: flex;
+        align-items: center;
+        min-height: 90vh;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .hero-tag {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--primary);
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(to right, #fff, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: var(--text-dim);
+        margin-bottom: 1rem;
+        max-width: 600px;
+      }
+
+      .hero-highlight {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2.5rem;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: var(--bg-dark);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+      }
+
+      .btn-outline {
+        border: 1px solid var(--glass-border);
+        color: var(--text-main);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      .hero-img-container {
+        position: relative;
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        aspect-ratio: 3/4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      /* --- SECTION TITLES --- */
+      .section-header {
+        margin-bottom: 4rem;
+        text-align: center;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .underline {
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin: 0 auto;
+        border-radius: 2px;
+      }
+
+      /* --- ABOUT SECTION --- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+
+      .about-card {
+        background: var(--bg-card);
+        padding: 2.5rem;
+        border-radius: 20px;
+        border: 1px solid var(--glass-border);
+      }
+
+      .about-highlights {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .highlight-item {
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+      }
+
+      .highlight-item h4 {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      /* --- SKILLS GRID --- */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .skill-card {
+        background: var(--bg-card);
+        padding: 2rem;
+        border-radius: 20px;
+        border: 1px solid var(--glass-border);
+        transition: var(--transition);
+      }
+
+      .skill-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      .skill-card i {
+        font-size: 2rem;
+        color: var(--accent);
+        margin-bottom: 1.5rem;
+      }
+
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1rem;
+      }
+
+      .tag {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0.3rem 0.8rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        color: var(--text-dim);
+        transition: var(--transition);
+      }
+
+      .tag:hover {
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--primary);
+      }
+
+      /* --- EXPERIENCE TIMELINE --- */
+      .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 30px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--glass-border);
+      }
+
+      .timeline-item {
+        padding-left: 4rem;
+        position: relative;
+        margin-bottom: 3rem;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 24px;
+        top: 0;
+        width: 12px;
+        height: 12px;
+        background: var(--primary);
+        border-radius: 50%;
+        box-shadow: 0 0 15px var(--primary);
+        z-index: 1;
+      }
+
+      .exp-card {
+        background: var(--bg-card);
+        padding: 2rem;
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+        transition: var(--transition);
+      }
+
+      .exp-card:hover {
+        border-color: var(--primary);
+      }
+
+      .exp-date {
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .exp-location {
+        color: var(--primary);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .exp-details ul {
+        list-style: none;
+        margin-top: 1rem;
+      }
+
+      .exp-details li {
+        margin-bottom: 0.5rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .exp-details li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+
+      /* --- CERTIFICATIONS --- */
+      .certs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .cert-card {
+        background: var(--bg-card);
+        padding: 1.5rem;
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+        transition: var(--transition);
+      }
+
+      .cert-card:hover {
+        border-color: var(--accent-secondary);
+        transform: translateY(-3px);
+      }
+
+      .cert-card h4 {
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .cert-issuer {
+        color: var(--accent-secondary);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+
+      .cert-date {
+        color: var(--text-dim);
+        font-size: 0.8rem;
+      }
+
+      /* --- PROJECTS --- */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background: var(--bg-card);
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .project-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      .project-content {
+        padding: 2rem;
+      }
+
+      .project-date {
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .project-tag {
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--primary);
+        padding: 0.3rem 0.8rem;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      /* --- CONTACT --- */
+      .contact-box {
+        background: linear-gradient(
+          135deg,
+          var(--bg-card) 0%,
+          rgba(15, 23, 42, 1) 100%
+        );
+        padding: 4rem;
+        border-radius: 30px;
+        text-align: center;
+        border: 1px solid var(--glass-border);
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 2.5rem;
+        flex-wrap: wrap;
+      }
+
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(56, 189, 248, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        padding: 4rem 0;
+        text-align: center;
+        border-top: 1px solid var(--glass-border);
+        color: var(--text-dim);
+        font-size: 0.9rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .social-links a {
+        color: var(--text-dim);
+        font-size: 1.2rem;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        color: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero-grid,
+        .about-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .btn-group {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(12px);
+          flex-direction: column;
+          align-items: center;
+          padding: 2rem 0;
+          gap: 1.5rem;
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: var(--transition);
+          border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+        .timeline::before {
+          left: 20px;
+        }
+        .timeline-item {
+          padding-left: 3rem;
+        }
+        .timeline-dot {
+          left: 14px;
+        }
+        .hero-img-container {
+          max-width: 300px;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blob"></div>
+    <div class="blob-2"></div>
+
+    <nav>
+      <div class="container nav-content">
+        <a href="#" class="logo"
+          >Kao <span style="color: var(--accent)">KATALA</span></a
+        >
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#competences">Expertise</a></li>
+          <li><a href="#experience">Parcours</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="accueil" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="hero-tag"
+            >Graduate Associate - Tony Blair Institute for Global Change</span
+          >
+
+          <h1>
+            Kao (Emmanuel) KATALA<br /><span
+              style="font-size: 2rem; color: var(--accent)"
+              >Économiste & Analyste de Projets</span
+            >
+          </h1>
+
+          <p>
+            Titulaire d'un
+            <span class="hero-highlight"
+              >Master en Économie internationale et développement</span
+            >
+            de l'Université de Kara et actuellement engagé dans le
+            <span class="hero-highlight"
+              >Presidential Program of Excellence</span
+            >.
+          </p>
+          <p>
+            Je contribue à des projets économiques et de développement à fort
+            impact en mettant à profit la technologie et les outils analytiques
+            pour améliorer l'efficacité opérationnelle.
+          </p>
+          <div class="btn-group">
+            <a href="#projets" class="btn btn-primary"
+              >Voir mes projets <i class="fas fa-arrow-right"></i
+            ></a>
+            <a href="#contact" class="btn btn-outline">Me contacter</a>
+          </div>
+        </div>
+        <div class="hero-img-container">
+          <img src="1757049831122.png" alt="[VOTRE NOM]" class="profile-img" />
+        </div>
+      </div>
+    </section>
+
+    <section id="apropos" style="padding: 6rem 0">
+      <div class="container">
+        <div class="section-header">
+          <h2>À Propos</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3 style="margin-bottom: 1.5rem; color: var(--primary)">
+              Profil Professionnel
+            </h3>
+            <p>
+              Actuellement en stage au
+              <span class="hero-highlight"
+                >Tony Blair Institute for Global Change</span
+              >, j'apporte un soutien à la gestion de projets et à
+              l'automatisation des tâches. Parallèlement, je pilote des
+              initiatives de recherche au sein de
+              <span class="hero-highlight">KaraNexus</span> en assurant la
+              collecte de données, le reporting et la représentation de
+              l'organisation aux niveaux local et international.
+            </p>
+            <p style="margin-top: 1.5rem">
+              Doté de certifications en intelligence artificielle générative,
+              analyse de données et gestion du cycle de projet, je combine
+              connaissances économiques rigoureuses et compétences techniques
+              pour contribuer à des projets à fort impact socio-économique en
+              Afrique.
+            </p>
+          </div>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <h4><i class="fas fa-graduation-cap"></i> Formation</h4>
+              <p>
+                Master en Économie Internationale et Développement - Université
+                de Kara
+              </p>
+              <p>
+                Presidential Program of Excellence - Do Well Do Good Education
+                Africa
+              </p>
+            </div>
+            <div class="highlight-item">
+              <h4><i class="fas fa-briefcase"></i> Expérience Actuelle</h4>
+              <p>
+                Graduate Associate Intern - Tony Blair Institute for Global
+                Change
+              </p>
+              <p>Economist Researcher - KaraNexus</p>
+            </div>
+            <div class="highlight-item">
+              <h4><i class="fas fa-bullseye"></i> Objectifs</h4>
+              <p>
+                Contribuer à des projets de développement économique à fort
+                impact en Afrique
+              </p>
+              <p>
+                Utiliser la technologie pour améliorer l'efficacité des
+                politiques publiques
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="competences"
+      style="padding: 6rem 0; background: rgba(255, 255, 255, 0.02)"
+    >
+      <div class="container">
+        <div class="section-header">
+          <h2>Expertises Clés</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i class="fas fa-chart-pie"></i>
+            <h3>Analyse Économique</h3>
+            <p>
+              Macroéconomie avancée, économétrie appliquée, analyse de données
+            </p>
+            <div class="skill-list">
+              <span class="tag">Macroéconomie</span>
+              <span class="tag">Finance Internationale</span>
+              <span class="tag">Économétrie</span>
+              <span class="tag">Statistiques</span>
+              <span class="tag">Analyse Commerciale</span>
+              <span class="tag">Développement Économique</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-microchip"></i>
+            <h3>IA & Data Science</h3>
+            <p>Analyse de données, automatisation</p>
+            <div class="skill-list">
+              <span class="tag">Data Analytics</span>
+              <span class="tag">Automatisation</span>
+              <span class="tag">Analyse Quantitative</span>
+              <span class="tag">Recherche Qualitative</span>
+              <span class="tag">Visualisation</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-tasks"></i>
+            <h3>Gestion de Projet</h3>
+            <p>Cycle de vie des projets, reporting, outils de gestion</p>
+            <div class="skill-list">
+              <span class="tag">Reporting</span>
+              <span class="tag">Cycle de vie</span>
+              <span class="tag">Évaluation d'Impact</span>
+              <span class="tag">Planification</span>
+              <span class="tag">Suivi-Évaluation</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-globe-africa"></i>
+            <h3>Développement International</h3>
+            <p>Commerce international, politiques publiques, coopération</p>
+            <div class="skill-list">
+              <span class="tag">Commerce International</span>
+              <span class="tag">Politiques Publiques</span>
+              <span class="tag">Diplomatie</span>
+              <span class="tag">Affaires Étrangères</span>
+              <span class="tag">Coopération</span>
+              <span class="tag">Évaluation Sociale</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-users"></i>
+            <h3>Soft Skills</h3>
+            <p>Leadership, communication, recherche, rédaction</p>
+            <div class="skill-list">
+              <span class="tag">Leadership</span>
+              <span class="tag">Communication</span>
+              <span class="tag">Recherche</span>
+              <span class="tag">Rédaction Technique</span>
+              <span class="tag">Résolution de Problèmes</span>
+              <span class="tag">Coaching</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-language"></i>
+            <h3>Langues</h3>
+            <p>Maîtrise complète du français et de l'anglais</p>
+            <div class="skill-list">
+              <span class="tag">Français (Langue maternelle)</span>
+              <span class="tag">Anglais (Professionnel)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" style="padding: 6rem 0">
+      <div class="container">
+        <div class="section-header">
+          <h2>Parcours Professionnel</h2>
+          <div class="underline"></div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="exp-card">
+              <span class="exp-date">Juillet 2025 – Présent</span>
+              <h3>Graduate Associate Intern</h3>
+              <div class="exp-location">
+                <i class="fas fa-map-marker-alt"></i> Tony Blair Institute for
+                Global Change · Lomé, Togo · Sur site
+              </div>
+              <div class="exp-details">
+                <ul>
+                  <li>Appui à la gestion de projets</li>
+                  <li>Automatisation des tâches</li>
+                  <li>Support au personnel</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="exp-card">
+              <span class="exp-date">Mai 2025 – Présent</span>
+              <h3>Economist Researcher</h3>
+              <div class="exp-location">
+                <i class="fas fa-map-marker-alt"></i> KaraNexus · Kozah, Région
+                de la Kara, Togo · Hybride
+              </div>
+              <div class="exp-details">
+                <ul>
+                  <li>Rédaction de propositions de recherche</li>
+                  <li>Collecte, gestion et analyse de données</li>
+                  <li>Coordination locale des activités</li>
+                  <li>Représentation locale et internationale</li>
+                  <li>Reporting et support administratif</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="exp-card">
+              <span class="exp-date">Mai 2025 – Juin 2025</span>
+              <h3>Agent de collecte de données</h3>
+              <div class="exp-location">
+                <i class="fas fa-map-marker-alt"></i> Ministère des Travaux
+                Publics et des Infrastructures · Aledjo, Togo · Sur site
+              </div>
+              <div class="exp-details">
+                <ul>
+                  <li>Réalisation d'interviews auprès des conducteurs</li>
+                  <li>Collecte d'informations et de données terrain</li>
+                  <li>Saisie et traitement des données</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="exp-card">
+              <span class="exp-date">Avril 2022 – Juillet 2022</span>
+              <h3>Stagiaire</h3>
+              <div class="exp-location">
+                <i class="fas fa-map-marker-alt"></i> Coris Bank International
+                Togo · Région de la Kara, Togo · Sur site
+              </div>
+              <div class="exp-details">
+                <ul>
+                  <li>Relations clients</li>
+                  <li>Relations avec le personnel</li>
+                  <li>Appui aux opérations bancaires</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="certifications"
+      style="padding: 6rem 0; background: rgba(255, 255, 255, 0.02)"
+    >
+      <div class="container">
+        <div class="section-header">
+          <h2>Certifications</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="certs-grid">
+          <div class="cert-card">
+            <h4>PMI - Certified Professional in Managing AI (PMI-CPMAI)</h4>
+            <div class="cert-issuer">Project Management Institute</div>
+            <div class="cert-date">Novembre 2025</div>
+          </div>
+          <div class="cert-card">
+            <h4>Generative AI Overview for Project Managers</h4>
+            <div class="cert-issuer">Project Management Institute</div>
+            <div class="cert-date">Novembre 2024</div>
+          </div>
+          <div class="cert-card">
+            <h4>Introduction to Data Analytics</h4>
+            <div class="cert-issuer">Simplilearn</div>
+            <div class="cert-date">Novembre 2024</div>
+          </div>
+          <div class="cert-card">
+            <h4>Certification in Economic Development</h4>
+            <div class="cert-issuer">IZA - Institute of Labor Economics</div>
+            <div class="cert-date">Juillet 2025</div>
+          </div>
+          <div class="cert-card">
+            <h4>Modélisation macroéconomique pour le développement durable</h4>
+            <div class="cert-issuer">
+              IDEP - African Institute for Economic Development and Planning
+            </div>
+            <div class="cert-date">Mai 2025</div>
+          </div>
+          <div class="cert-card">
+            <h4>Introduction to AI for Youth</h4>
+            <div class="cert-issuer">Commonwealth AI Academy</div>
+            <div class="cert-date">Mars 2025</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projets" style="padding: 6rem 0">
+      <div class="container">
+        <div class="section-header">
+          <h2>Projets Réalisés</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-content">
+              <span class="project-date">Juin 2025 – Présent</span>
+              <h3>Le profil commercial du Togo</h3>
+              <p>
+                Analyse approfondie de la performance commerciale du Togo sur la
+                scène internationale. Examen des principaux accords commerciaux,
+                évolution des exportations, importations et balance commerciale.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Analyse Commerciale</span>
+                <span class="project-tag">Économie Internationale</span>
+                <span class="project-tag">Données Statistiques</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-content">
+              <span class="project-date">Juin 2025 – Juillet 2025</span>
+              <h3>Benin Digital Readiness</h3>
+              <p>
+                Évaluation de l'état de préparation numérique du Bénin depuis
+                2016. Analyse des plateformes d'e-gouvernance et recommandations
+                pour renforcer la transformation digitale.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Transformation Digitale</span>
+                <span class="project-tag">Politiques Publiques</span>
+                <span class="project-tag">Recherche Qualitative</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-content">
+              <span class="project-date"
+                >Présidential Program of Excellence</span
+              >
+              <h3>Use cases de l'IA pour les services publics au Togo</h3>
+              <p>
+                Consulting presentation sur les applications potentielles de
+                l'intelligence artificielle pour optimiser et moderniser les
+                services publics au Togo.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Intelligence Artificielle</span>
+                <span class="project-tag">Services Publics</span>
+                <span class="project-tag">Consulting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      style="padding: 6rem 0; background: rgba(255, 255, 255, 0.02)"
+    >
+      <div class="container">
+        <div class="contact-box">
+          <h2 style="margin-bottom: 1rem">Un projet en tête ?</h2>
+          <p
+            style="
+              color: var(--text-dim);
+              margin-bottom: 2.5rem;
+              max-width: 600px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            Je suis ouvert aux opportunités de consultance, collaborations de
+            recherche et projets à fort impact socio-économique en Afrique.
+          </p>
+          <!-- REMPLACER PAR VOTRE EMAIL -->
+          <a
+            href="mailto:votre.email@exemple.tg"
+            class="btn btn-primary"
+            style="margin-bottom: 2rem"
+          >
+            <i class="fas fa-envelope"></i> Envoyez un Email
+          </a>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4>Localisation</h4>
+                <!-- REMPLACER PAR VOTRE VILLE/PAYS -->
+                <p style="color: var(--text-dim); font-size: 0.9rem">
+                  Lomé, Togo
+                </p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-language"></i>
+              </div>
+              <div>
+                <h4>Langues</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem">
+                  Français & Anglais
+                </p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <div>
+                <h4>Disponibilité</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem">
+                  Ouvert aux collaborations
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="social-links">
+          <a href="https://linkedin.com/in/vprofil" target="_blank"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="https://twitter.com/votreprofil" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://github.com/votreprofil" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="mailto:votre.email@exemple.tg"
+            ><i class="fas fa-envelope"></i
+          ></a>
+        </div>
+
+        <p>
+          &copy; 2026 • Kao (Emmanuel) KATALA • Économiste & Analyste de Projets
+          • Conçu avec excellence pour un impact global.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Menu mobile
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        mobileMenuBtn.innerHTML = navLinks.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Fermer le menu mobile en cliquant sur un lien
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Animation au défilement
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Animation pour les cartes
+      const cards = document.querySelectorAll(
+        ".skill-card, .cert-card, .project-card, .exp-card"
+      );
+      cards.forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+        card.style.transition =
+          "opacity 0.5s ease, transform 0.5s ease, border-color 0.3s ease";
+        observer.observe(card);
+      });
+
+      // Animation pour la timeline
+      const timelineItems = document.querySelectorAll(".timeline-item");
+      timelineItems.forEach((item) => {
+        item.style.opacity = "0";
+        item.style.transform = "translateX(-20px)";
+        item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+      });
+
+      const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateX(0)";
+            }, index * 200);
+          }
+        });
+      }, observerOptions);
+
+      timelineItems.forEach((item) => timelineObserver.observe(item));
+    </script>
+  </body>
+</html>
