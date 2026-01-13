@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Portfolio | [VOTRE PRÉNOM] [VOTRE NOM] - Économiste & Analyste
-    </title>
+    <title>Kao KATALA | Économiste - Analyste de Projets & Chercheur</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -22,6 +20,8 @@
         --primary: #38bdf8;
         --accent: #fbbf24;
         --accent-secondary: #10b981;
+        --research-color: #8b5cf6;
+        --analyst-color: #0ea5e9;
         --text-main: #f1f5f9;
         --text-dim: #94a3b8;
         --glass-border: rgba(255, 255, 255, 0.1);
@@ -60,7 +60,7 @@
         padding: 0 2rem;
       }
 
-      /* --- BACKGROUND SHAPES --- */
+      /* Background Shapes */
       .blob {
         position: absolute;
         width: 400px;
@@ -83,7 +83,7 @@
         height: 300px;
         background: linear-gradient(
           135deg,
-          rgba(16, 185, 129, 0.15) 0%,
+          rgba(139, 92, 246, 0.15) 0%,
           rgba(56, 189, 248, 0.1) 100%
         );
         filter: blur(60px);
@@ -93,7 +93,7 @@
         left: -100px;
       }
 
-      /* --- NAVIGATION --- */
+      /* Navigation */
       nav {
         position: fixed;
         top: 0;
@@ -123,6 +123,7 @@
         display: flex;
         gap: 2rem;
         list-style: none;
+        align-items: center;
       }
 
       .nav-links a {
@@ -146,7 +147,84 @@
         cursor: pointer;
       }
 
-      /* --- HERO SECTION --- */
+      /* Language Selector */
+      .language-selector {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+        transition: var(--transition);
+      }
+
+      .language-selector:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--primary);
+      }
+
+      .language-selector img {
+        width: 20px;
+        height: 15px;
+        object-fit: cover;
+        border-radius: 2px;
+      }
+
+      .language-selector span {
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .language-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 0.5rem;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        padding: 0.5rem 0;
+        min-width: 120px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: var(--transition);
+        z-index: 1001;
+      }
+
+      .language-dropdown.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .language-option {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        color: var(--text-dim);
+        text-decoration: none;
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .language-option:hover {
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--primary);
+      }
+
+      .language-option.active {
+        background: rgba(56, 189, 248, 0.15);
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      /* Hero Section */
       .hero {
         padding: 12rem 0 6rem;
         display: flex;
@@ -161,20 +239,37 @@
         align-items: center;
       }
 
-      .hero-tag {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        background: rgba(56, 189, 248, 0.1);
-        color: var(--primary);
+      .dual-badges {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .badge {
+        padding: 0.6rem 1.5rem;
         border-radius: 50px;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         font-weight: 600;
-        margin-bottom: 1.5rem;
-        border: 1px solid rgba(56, 189, 248, 0.2);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .badge-analyst {
+        background: rgba(14, 165, 233, 0.15);
+        color: var(--analyst-color);
+        border: 1px solid rgba(14, 165, 233, 0.3);
+      }
+
+      .badge-research {
+        background: rgba(139, 92, 246, 0.15);
+        color: var(--research-color);
+        border: 1px solid rgba(139, 92, 246, 0.3);
       }
 
       .hero h1 {
-        font-size: 3.5rem;
+        font-size: 3.2rem;
         line-height: 1.1;
         margin-bottom: 1.5rem;
         background: linear-gradient(to right, #fff, #94a3b8);
@@ -182,10 +277,10 @@
         -webkit-text-fill-color: transparent;
       }
 
-      .hero p {
-        font-size: 1.1rem;
+      .hero-subtitle {
+        font-size: 1.2rem;
         color: var(--text-dim);
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         max-width: 600px;
       }
 
@@ -198,6 +293,7 @@
         display: flex;
         gap: 1rem;
         margin-top: 2.5rem;
+        flex-wrap: wrap;
       }
 
       .btn {
@@ -250,7 +346,7 @@
         transition: transform 0.5s ease;
       }
 
-      /* --- SECTION TITLES --- */
+      /* Section Titles */
       .section-header {
         margin-bottom: 4rem;
         text-align: center;
@@ -269,43 +365,86 @@
         border-radius: 2px;
       }
 
-      /* --- ABOUT SECTION --- */
-      .about-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 4rem;
-        align-items: start;
+      /* Dual Focus Section */
+      .dual-focus {
+        padding: 6rem 0;
+        background: rgba(255, 255, 255, 0.02);
       }
 
-      .about-card {
+      .focus-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+      }
+
+      .focus-card {
         background: var(--bg-card);
-        padding: 2.5rem;
+        padding: 3rem;
         border-radius: 20px;
         border: 1px solid var(--glass-border);
+        transition: var(--transition);
+        height: 100%;
       }
 
-      .about-highlights {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+      .focus-card:hover {
+        transform: translateY(-10px);
       }
 
-      .highlight-item {
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.05);
+      .focus-card.analyst {
+        border-top: 4px solid var(--analyst-color);
+      }
+
+      .focus-card.research {
+        border-top: 4px solid var(--research-color);
+      }
+
+      .focus-icon {
+        width: 70px;
+        height: 70px;
         border-radius: 16px;
-        border: 1px solid var(--glass-border);
-      }
-
-      .highlight-item h4 {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        color: var(--primary);
-        margin-bottom: 0.5rem;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
       }
 
-      /* --- SKILLS GRID --- */
+      .analyst .focus-icon {
+        background: rgba(14, 165, 233, 0.15);
+        color: var(--analyst-color);
+      }
+
+      .research .focus-icon {
+        background: rgba(139, 92, 246, 0.15);
+        color: var(--research-color);
+      }
+
+      .focus-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .focus-list {
+        list-style: none;
+        margin-top: 1.5rem;
+      }
+
+      .focus-list li {
+        margin-bottom: 0.8rem;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .focus-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      /* Skills Grid */
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -352,7 +491,7 @@
         color: var(--primary);
       }
 
-      /* --- EXPERIENCE TIMELINE --- */
+      /* Experience Timeline */
       .timeline {
         position: relative;
         max-width: 900px;
@@ -434,51 +573,14 @@
         color: var(--accent);
       }
 
-      /* --- CERTIFICATIONS --- */
-      .certs-grid {
+      /* Research Projects */
+      .research-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .cert-card {
-        background: var(--bg-card);
-        padding: 1.5rem;
-        border-radius: 16px;
-        border: 1px solid var(--glass-border);
-        transition: var(--transition);
-      }
-
-      .cert-card:hover {
-        border-color: var(--accent-secondary);
-        transform: translateY(-3px);
-      }
-
-      .cert-card h4 {
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-      }
-
-      .cert-issuer {
-        color: var(--accent-secondary);
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin-bottom: 0.3rem;
-      }
-
-      .cert-date {
-        color: var(--text-dim);
-        font-size: 0.8rem;
-      }
-
-      /* --- PROJECTS --- */
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 2rem;
       }
 
-      .project-card {
+      .research-card {
         background: var(--bg-card);
         border-radius: 16px;
         border: 1px solid var(--glass-border);
@@ -486,40 +588,32 @@
         transition: var(--transition);
       }
 
-      .project-card:hover {
-        border-color: var(--primary);
+      .research-card:hover {
+        border-color: var(--research-color);
         transform: translateY(-5px);
       }
 
-      .project-content {
-        padding: 2rem;
+      .research-header {
+        padding: 1.5rem 1.5rem 0.5rem;
+        border-bottom: 1px solid var(--glass-border);
       }
 
-      .project-date {
-        color: var(--accent);
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        display: block;
-      }
-
-      .project-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-      }
-
-      .project-tag {
-        background: rgba(56, 189, 248, 0.1);
-        color: var(--primary);
+      .research-badge {
+        background: rgba(139, 92, 246, 0.15);
+        color: var(--research-color);
         padding: 0.3rem 0.8rem;
-        border-radius: 8px;
+        border-radius: 6px;
         font-size: 0.75rem;
         font-weight: 600;
+        display: inline-block;
+        margin-bottom: 1rem;
       }
 
-      /* --- CONTACT --- */
+      .research-content {
+        padding: 1.5rem;
+      }
+
+      /* Contact */
       .contact-box {
         background: linear-gradient(
           135deg,
@@ -560,7 +654,7 @@
         margin-bottom: 0.5rem;
       }
 
-      /* --- FOOTER --- */
+      /* Footer */
       footer {
         padding: 4rem 0;
         text-align: center;
@@ -589,21 +683,27 @@
 
       /* Responsive */
       @media (max-width: 768px) {
-        .hero-grid,
-        .about-grid {
+        .hero-grid {
           grid-template-columns: 1fr;
           text-align: center;
         }
+
         .hero h1 {
           font-size: 2.5rem;
         }
+
+        .dual-badges {
+          justify-content: center;
+        }
+
         .btn-group {
           justify-content: center;
-          flex-wrap: wrap;
         }
+
         .mobile-menu-btn {
           display: block;
         }
+
         .nav-links {
           position: fixed;
           top: 80px;
@@ -621,23 +721,32 @@
           transition: var(--transition);
           border-bottom: 1px solid var(--glass-border);
         }
+
         .nav-links.active {
           transform: translateY(0);
           opacity: 1;
           visibility: visible;
         }
+
         .timeline::before {
           left: 20px;
         }
+
         .timeline-item {
           padding-left: 3rem;
         }
+
         .timeline-dot {
           left: 14px;
         }
+
         .hero-img-container {
           max-width: 300px;
           margin: 0 auto;
+        }
+
+        .focus-grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -655,13 +764,33 @@
           <i class="fas fa-bars"></i>
         </button>
         <ul class="nav-links">
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#apropos">À propos</a></li>
-          <li><a href="#competences">Expertise</a></li>
-          <li><a href="#experience">Parcours</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#projets">Projets</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#accueil" data-key="nav.home">Accueil</a></li>
+          <li>
+            <a href="#focus" data-key="nav.focus">Domaines d'Expertise</a>
+          </li>
+          <li><a href="#competences" data-key="nav.skills">Compétences</a></li>
+          <li><a href="#experience" data-key="nav.experience">Parcours</a></li>
+          <li><a href="#recherche" data-key="nav.research">Recherche</a></li>
+          <li><a href="#contact" data-key="nav.contact">Contact</a></li>
+          <li class="language-selector" id="languageSelector">
+            <img
+              src="https://flagcdn.com/w40/gb.png"
+              alt="English"
+              id="currentFlag"
+            />
+            <span id="currentLanguage">EN</span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="language-dropdown" id="languageDropdown">
+              <div class="language-option" data-lang="en">
+                <img src="https://flagcdn.com/w40/gb.png" alt="English" />
+                <span>English</span>
+              </div>
+              <div class="language-option active" data-lang="fr">
+                <img src="https://flagcdn.com/w40/fr.png" alt="Français" />
+                <span>Français</span>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
@@ -669,105 +798,257 @@
     <section id="accueil" class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <span class="hero-tag"
-            >Graduate Associate - Tony Blair Institute for Global Change</span
-          >
+          <div class="dual-badges">
+            <span class="badge badge-analyst">
+              <i class="fas fa-chart-line"></i>
+              <span data-key="hero.badgeAnalyst">Analyste de Projets</span>
+            </span>
+            <span class="badge badge-research">
+              <i class="fas fa-search"></i>
+              <span data-key="hero.badgeResearch">Chercheur en Économie</span>
+            </span>
+          </div>
 
           <h1>
-            Kao (Emmanuel) KATALA<br /><span
+            Kao (Emmanuel) KATALA<br />
+            <span
               style="font-size: 2rem; color: var(--accent)"
-              >Économiste & Analyste de Projets</span
+              data-key="hero.subtitle"
             >
+              Économiste | Analyste Stratégique | Chercheur
+            </span>
           </h1>
 
-          <p>
-            Titulaire d'un
-            <span class="hero-highlight"
-              >Master en Économie internationale et développement</span
-            >
-            de l'Université de Kara et actuellement engagé dans le
-            <span class="hero-highlight"
-              >Presidential Program of Excellence</span
-            >.
+          <p class="hero-subtitle" data-key="hero.description">
+            Spécialiste en analyse économique et gestion de projets, je combine
+            expertise technique et recherche appliquée pour développer des
+            solutions innovantes en matière de développement économique.
           </p>
-          <p>
-            Je contribue à des projets économiques et de développement à fort
-            impact en mettant à profit la technologie et les outils analytiques
-            pour améliorer l'efficacité opérationnelle.
+
+          <p data-key="hero.mission">
+            Ma mission : transformer des données complexes en
+            <span class="hero-highlight">stratégies actionnables</span> et
+            contribuer à la
+            <span class="hero-highlight">recherche économique</span> qui façonne
+            les politiques de développement en Afrique.
           </p>
+
           <div class="btn-group">
-            <a href="#projets" class="btn btn-primary"
-              >Voir mes projets <i class="fas fa-arrow-right"></i
-            ></a>
-            <a href="#contact" class="btn btn-outline">Me contacter</a>
+            <a href="#focus" class="btn btn-primary" data-key="hero.explore">
+              Explorer mes expertises <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline" data-key="hero.contact"
+              >Collaborer</a
+            >
           </div>
         </div>
+
         <div class="hero-img-container">
-          <img src="1757049831122.png" alt="[VOTRE NOM]" class="profile-img" />
+          <img src="1757049831122.png" alt="Kao KATALA" class="profile-img" />
         </div>
       </div>
     </section>
 
-    <section id="apropos" style="padding: 6rem 0">
+    <section id="focus" class="dual-focus">
       <div class="container">
         <div class="section-header">
-          <h2>À Propos</h2>
+          <h2 data-key="focus.title">Dualité d'Expertise</h2>
+          <div class="underline"></div>
+          <p
+            style="max-width: 700px; margin: 1rem auto; color: var(--text-dim)"
+            data-key="focus.subtitle"
+          >
+            Deux approches complémentaires pour aborder les défis du
+            développement économique
+          </p>
+        </div>
+
+        <div class="focus-grid">
+          <div class="focus-card analyst">
+            <div class="focus-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3 data-key="focus.analystTitle">Analyste de Projets</h3>
+            <p data-key="focus.analystDesc">
+              Spécialiste en conception, suivi et évaluation de projets de
+              développement. Je transforme des objectifs complexes en plans
+              d'action mesurables et efficaces.
+            </p>
+
+            <ul class="focus-list">
+              <li data-key="focus.analyst1">
+                Gestion du cycle de projet (conception à l'évaluation)
+              </li>
+              <li data-key="focus.analyst2">
+                Analyse coûts-bénéfices et études de faisabilité
+              </li>
+              <li data-key="focus.analyst3">
+                Suivi-évaluation et indicateurs de performance
+              </li>
+              <li data-key="focus.analyst4">
+                Optimisation des processus et automatisation
+              </li>
+              <li data-key="focus.analyst5">
+                Reporting stratégique et tableaux de bord
+              </li>
+            </ul>
+          </div>
+
+          <div class="focus-card research">
+            <div class="focus-icon">
+              <i class="fas fa-microscope"></i>
+            </div>
+            <h3 data-key="focus.researchTitle">Chercheur en Économie</h3>
+            <p data-key="focus.researchDesc">
+              Investigation approfondie des phénomènes économiques pour produire
+              des connaissances qui éclairent les politiques publiques et les
+              stratégies de développement.
+            </p>
+
+            <ul class="focus-list">
+              <li data-key="focus.research1">Recherche économique appliquée</li>
+              <li data-key="focus.research2">
+                Analyse quantitative et qualitative
+              </li>
+              <li data-key="focus.research3">Études d'impact et évaluations</li>
+              <li data-key="focus.research4">Modélisation macroéconomique</li>
+              <li data-key="focus.research5">
+                Publications et diffusion scientifique
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="competences" style="padding: 6rem 0">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-key="skills.title">Compétences Techniques</h2>
           <div class="underline"></div>
         </div>
-        <div class="about-grid">
-          <div class="about-card">
-            <h3 style="margin-bottom: 1.5rem; color: var(--primary)">
-              Profil Professionnel
-            </h3>
-            <p>
-              Actuellement en stage au
-              <span class="hero-highlight"
-                >Tony Blair Institute for Global Change</span
-              >, j'apporte un soutien à la gestion de projets et à
-              l'automatisation des tâches. Parallèlement, je pilote des
-              initiatives de recherche au sein de
-              <span class="hero-highlight">KaraNexus</span> en assurant la
-              collecte de données, le reporting et la représentation de
-              l'organisation aux niveaux local et international.
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i class="fas fa-chart-bar"></i>
+            <h3 data-key="skills.analytics">Analyse de Données</h3>
+            <p data-key="skills.analyticsDesc">
+              Outils et méthodes pour l'analyse quantitative
             </p>
-            <p style="margin-top: 1.5rem">
-              Doté de certifications en intelligence artificielle générative,
-              analyse de données et gestion du cycle de projet, je combine
-              connaissances économiques rigoureuses et compétences techniques
-              pour contribuer à des projets à fort impact socio-économique en
-              Afrique.
-            </p>
+            <div class="skill-list">
+              <span class="tag" data-key="skills.statistics">Statistiques</span>
+              <span class="tag" data-key="skills.econometrics"
+                >Économétrie</span
+              >
+              <span class="tag" data-key="skills.dataViz">Visualisation</span>
+              <span class="tag" data-key="skills.python">Python</span>
+              <span class="tag" data-key="skills.excel">Excel Avancé</span>
+              <span class="tag" data-key="skills.survey">Enquêtes</span>
+            </div>
           </div>
-          <div class="about-highlights">
-            <div class="highlight-item">
-              <h4><i class="fas fa-graduation-cap"></i> Formation</h4>
-              <p>
-                Master en Économie Internationale et Développement - Université
-                de Kara
-              </p>
-              <p>
-                Presidential Program of Excellence - Do Well Do Good Education
-                Africa
-              </p>
+
+          <div class="skill-card">
+            <i class="fas fa-tasks"></i>
+            <h3 data-key="skills.project">Gestion de Projet</h3>
+            <p data-key="skills.projectDesc">
+              Méthodologies et outils de gestion
+            </p>
+            <div class="skill-list">
+              <span class="tag" data-key="skills.pmMethod"
+                >Méthodes Agiles</span
+              >
+              <span class="tag" data-key="skills.logframe">Cadre Logique</span>
+              <span class="tag" data-key="skills.monitoring"
+                >Suivi-Évaluation</span
+              >
+              <span class="tag" data-key="skills.risk"
+                >Gestion des Risques</span
+              >
+              <span class="tag" data-key="skills.budget">Budgetisation</span>
+              <span class="tag" data-key="skills.reporting">Reporting</span>
             </div>
-            <div class="highlight-item">
-              <h4><i class="fas fa-briefcase"></i> Expérience Actuelle</h4>
-              <p>
-                Graduate Associate Intern - Tony Blair Institute for Global
-                Change
-              </p>
-              <p>Economist Researcher - KaraNexus</p>
+          </div>
+
+          <div class="skill-card">
+            <i class="fas fa-brain"></i>
+            <h3 data-key="skills.ai">Intelligence Artificielle</h3>
+            <p data-key="skills.aiDesc">
+              Applications de l'IA en économie et gestion
+            </p>
+            <div class="skill-list">
+              <span class="tag" data-key="skills.generativeAI"
+                >IA Générative</span
+              >
+              <span class="tag" data-key="skills.automation"
+                >Automatisation</span
+              >
+              <span class="tag" data-key="skills.prompt"
+                >Prompt Engineering</span
+              >
+              <span class="tag" data-key="skills.dataMining">Data Mining</span>
+              <span class="tag" data-key="skills.prediction"
+                >Modèles Prédictifs</span
+              >
             </div>
-            <div class="highlight-item">
-              <h4><i class="fas fa-bullseye"></i> Objectifs</h4>
-              <p>
-                Contribuer à des projets de développement économique à fort
-                impact en Afrique
-              </p>
-              <p>
-                Utiliser la technologie pour améliorer l'efficacité des
-                politiques publiques
-              </p>
+          </div>
+
+          <div class="skill-card">
+            <i class="fas fa-globe-africa"></i>
+            <h3 data-key="skills.development">Développement Économique</h3>
+            <p data-key="skills.developmentDesc">
+              Expertise sectorielle et politique
+            </p>
+            <div class="skill-list">
+              <span class="tag" data-key="skills.macro">Macroéconomie</span>
+              <span class="tag" data-key="skills.trade"
+                >Commerce International</span
+              >
+              <span class="tag" data-key="skills.policy"
+                >Politiques Publiques</span
+              >
+              <span class="tag" data-key="skills.digital"
+                >Transformation Digitale</span
+              >
+              <span class="tag" data-key="skills.sustainability"
+                >Développement Durable</span
+              >
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <i class="fas fa-search"></i>
+            <h3 data-key="skills.research">Recherche Appliquée</h3>
+            <p data-key="skills.researchDesc">
+              Méthodologies de recherche scientifique
+            </p>
+            <div class="skill-list">
+              <span class="tag" data-key="skills.methodology"
+                >Méthodologie</span
+              >
+              <span class="tag" data-key="skills.dataCollect"
+                >Collecte de Données</span
+              >
+              <span class="tag" data-key="skills.analysis"
+                >Analyse Qualitative</span
+              >
+              <span class="tag" data-key="skills.writing"
+                >Rédaction Scientifique</span
+              >
+              <span class="tag" data-key="skills.publication">Publication</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <i class="fas fa-language"></i>
+            <h3 data-key="skills.languages">Langues</h3>
+            <p data-key="skills.languagesDesc">Communication professionnelle</p>
+            <div class="skill-list">
+              <span class="tag" data-key="skills.french"
+                >Français (Natale)</span
+              >
+              <span class="tag" data-key="skills.english"
+                >Anglais (Courant)</span
+              >
             </div>
           </div>
         </div>
@@ -775,97 +1056,12 @@
     </section>
 
     <section
-      id="competences"
+      id="experience"
       style="padding: 6rem 0; background: rgba(255, 255, 255, 0.02)"
     >
       <div class="container">
         <div class="section-header">
-          <h2>Expertises Clés</h2>
-          <div class="underline"></div>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <i class="fas fa-chart-pie"></i>
-            <h3>Analyse Économique</h3>
-            <p>
-              Macroéconomie avancée, économétrie appliquée, analyse de données
-            </p>
-            <div class="skill-list">
-              <span class="tag">Macroéconomie</span>
-              <span class="tag">Finance Internationale</span>
-              <span class="tag">Économétrie</span>
-              <span class="tag">Statistiques</span>
-              <span class="tag">Analyse Commerciale</span>
-              <span class="tag">Développement Économique</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <i class="fas fa-microchip"></i>
-            <h3>IA & Data Science</h3>
-            <p>Analyse de données, automatisation</p>
-            <div class="skill-list">
-              <span class="tag">Data Analytics</span>
-              <span class="tag">Automatisation</span>
-              <span class="tag">Analyse Quantitative</span>
-              <span class="tag">Recherche Qualitative</span>
-              <span class="tag">Visualisation</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <i class="fas fa-tasks"></i>
-            <h3>Gestion de Projet</h3>
-            <p>Cycle de vie des projets, reporting, outils de gestion</p>
-            <div class="skill-list">
-              <span class="tag">Reporting</span>
-              <span class="tag">Cycle de vie</span>
-              <span class="tag">Évaluation d'Impact</span>
-              <span class="tag">Planification</span>
-              <span class="tag">Suivi-Évaluation</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <i class="fas fa-globe-africa"></i>
-            <h3>Développement International</h3>
-            <p>Commerce international, politiques publiques, coopération</p>
-            <div class="skill-list">
-              <span class="tag">Commerce International</span>
-              <span class="tag">Politiques Publiques</span>
-              <span class="tag">Diplomatie</span>
-              <span class="tag">Affaires Étrangères</span>
-              <span class="tag">Coopération</span>
-              <span class="tag">Évaluation Sociale</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <i class="fas fa-users"></i>
-            <h3>Soft Skills</h3>
-            <p>Leadership, communication, recherche, rédaction</p>
-            <div class="skill-list">
-              <span class="tag">Leadership</span>
-              <span class="tag">Communication</span>
-              <span class="tag">Recherche</span>
-              <span class="tag">Rédaction Technique</span>
-              <span class="tag">Résolution de Problèmes</span>
-              <span class="tag">Coaching</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <i class="fas fa-language"></i>
-            <h3>Langues</h3>
-            <p>Maîtrise complète du français et de l'anglais</p>
-            <div class="skill-list">
-              <span class="tag">Français (Langue maternelle)</span>
-              <span class="tag">Anglais (Professionnel)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" style="padding: 6rem 0">
-      <div class="container">
-        <div class="section-header">
-          <h2>Parcours Professionnel</h2>
+          <h2 data-key="experience.title">Parcours Professionnel</h2>
           <div class="underline"></div>
         </div>
 
@@ -874,16 +1070,24 @@
             <div class="timeline-dot"></div>
             <div class="exp-card">
               <span class="exp-date">Juillet 2025 – Présent</span>
-              <h3>Graduate Associate Intern</h3>
+              <h3 data-key="experience.job1.title">
+                Graduate Associate - Analyse de Projets
+              </h3>
               <div class="exp-location">
                 <i class="fas fa-map-marker-alt"></i> Tony Blair Institute for
-                Global Change · Lomé, Togo · Sur site
+                Global Change · Lomé, Togo
               </div>
               <div class="exp-details">
                 <ul>
-                  <li>Appui à la gestion de projets</li>
-                  <li>Automatisation des tâches</li>
-                  <li>Support au personnel</li>
+                  <li data-key="experience.job1.task1">
+                    Support à la gestion et suivi de projets de développement
+                  </li>
+                  <li data-key="experience.job1.task2">
+                    Automatisation des processus administratifs
+                  </li>
+                  <li data-key="experience.job1.task3">
+                    Analyse de données et reporting stratégique
+                  </li>
                 </ul>
               </div>
             </div>
@@ -893,56 +1097,21 @@
             <div class="timeline-dot"></div>
             <div class="exp-card">
               <span class="exp-date">Mai 2025 – Présent</span>
-              <h3>Economist Researcher</h3>
+              <h3 data-key="experience.job2.title">Chercheur en Économie</h3>
               <div class="exp-location">
-                <i class="fas fa-map-marker-alt"></i> KaraNexus · Kozah, Région
-                de la Kara, Togo · Hybride
+                <i class="fas fa-map-marker-alt"></i> KaraNexus · Kara, Togo
               </div>
               <div class="exp-details">
                 <ul>
-                  <li>Rédaction de propositions de recherche</li>
-                  <li>Collecte, gestion et analyse de données</li>
-                  <li>Coordination locale des activités</li>
-                  <li>Représentation locale et internationale</li>
-                  <li>Reporting et support administratif</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="exp-card">
-              <span class="exp-date">Mai 2025 – Juin 2025</span>
-              <h3>Agent de collecte de données</h3>
-              <div class="exp-location">
-                <i class="fas fa-map-marker-alt"></i> Ministère des Travaux
-                Publics et des Infrastructures · Aledjo, Togo · Sur site
-              </div>
-              <div class="exp-details">
-                <ul>
-                  <li>Réalisation d'interviews auprès des conducteurs</li>
-                  <li>Collecte d'informations et de données terrain</li>
-                  <li>Saisie et traitement des données</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="exp-card">
-              <span class="exp-date">Avril 2022 – Juillet 2022</span>
-              <h3>Stagiaire</h3>
-              <div class="exp-location">
-                <i class="fas fa-map-marker-alt"></i> Coris Bank International
-                Togo · Région de la Kara, Togo · Sur site
-              </div>
-              <div class="exp-details">
-                <ul>
-                  <li>Relations clients</li>
-                  <li>Relations avec le personnel</li>
-                  <li>Appui aux opérations bancaires</li>
+                  <li data-key="experience.job2.task1">
+                    Rédaction de propositions de recherche
+                  </li>
+                  <li data-key="experience.job2.task2">
+                    Collecte et analyse de données économiques
+                  </li>
+                  <li data-key="experience.job2.task3">
+                    Coordination de projets de recherche
+                  </li>
                 </ul>
               </div>
             </div>
@@ -951,106 +1120,101 @@
       </div>
     </section>
 
-    <section
-      id="certifications"
-      style="padding: 6rem 0; background: rgba(255, 255, 255, 0.02)"
-    >
+    <section id="recherche" style="padding: 6rem 0">
       <div class="container">
         <div class="section-header">
-          <h2>Certifications</h2>
+          <h2 data-key="research.title">Projets de Recherche</h2>
           <div class="underline"></div>
+          <p
+            style="max-width: 700px; margin: 1rem auto; color: var(--text-dim)"
+            data-key="research.subtitle"
+          >
+            Investigations économiques produisant des connaissances pour
+            l'action
+          </p>
         </div>
-        <div class="certs-grid">
-          <div class="cert-card">
-            <h4>PMI - Certified Professional in Managing AI (PMI-CPMAI)</h4>
-            <div class="cert-issuer">Project Management Institute</div>
-            <div class="cert-date">Novembre 2025</div>
-          </div>
-          <div class="cert-card">
-            <h4>Generative AI Overview for Project Managers</h4>
-            <div class="cert-issuer">Project Management Institute</div>
-            <div class="cert-date">Novembre 2024</div>
-          </div>
-          <div class="cert-card">
-            <h4>Introduction to Data Analytics</h4>
-            <div class="cert-issuer">Simplilearn</div>
-            <div class="cert-date">Novembre 2024</div>
-          </div>
-          <div class="cert-card">
-            <h4>Certification in Economic Development</h4>
-            <div class="cert-issuer">IZA - Institute of Labor Economics</div>
-            <div class="cert-date">Juillet 2025</div>
-          </div>
-          <div class="cert-card">
-            <h4>Modélisation macroéconomique pour le développement durable</h4>
-            <div class="cert-issuer">
-              IDEP - African Institute for Economic Development and Planning
-            </div>
-            <div class="cert-date">Mai 2025</div>
-          </div>
-          <div class="cert-card">
-            <h4>Introduction to AI for Youth</h4>
-            <div class="cert-issuer">Commonwealth AI Academy</div>
-            <div class="cert-date">Mars 2025</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="projets" style="padding: 6rem 0">
-      <div class="container">
-        <div class="section-header">
-          <h2>Projets Réalisés</h2>
-          <div class="underline"></div>
-        </div>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-content">
-              <span class="project-date">Juin 2025 – Présent</span>
-              <h3>Le profil commercial du Togo</h3>
-              <p>
-                Analyse approfondie de la performance commerciale du Togo sur la
-                scène internationale. Examen des principaux accords commerciaux,
-                évolution des exportations, importations et balance commerciale.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Analyse Commerciale</span>
-                <span class="project-tag">Économie Internationale</span>
-                <span class="project-tag">Données Statistiques</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-content">
-              <span class="project-date">Juin 2025 – Juillet 2025</span>
-              <h3>Benin Digital Readiness</h3>
-              <p>
-                Évaluation de l'état de préparation numérique du Bénin depuis
-                2016. Analyse des plateformes d'e-gouvernance et recommandations
-                pour renforcer la transformation digitale.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Transformation Digitale</span>
-                <span class="project-tag">Politiques Publiques</span>
-                <span class="project-tag">Recherche Qualitative</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-content">
-              <span class="project-date"
-                >Présidential Program of Excellence</span
+        <div class="research-grid">
+          <div class="research-card">
+            <div class="research-header">
+              <span class="research-badge" data-key="research.onGoing"
+                >En Cours</span
               >
-              <h3>Use cases de l'IA pour les services publics au Togo</h3>
-              <p>
-                Consulting presentation sur les applications potentielles de
-                l'intelligence artificielle pour optimiser et moderniser les
-                services publics au Togo.
+              <h3 data-key="research.project1.title">
+                Le Profil Commercial du Togo
+              </h3>
+            </div>
+            <div class="research-content">
+              <p data-key="research.project1.desc">
+                Analyse approfondie de la performance commerciale internationale
+                du Togo, évaluation des accords commerciaux et recommandations
+                stratégiques.
               </p>
-              <div class="project-tags">
-                <span class="project-tag">Intelligence Artificielle</span>
-                <span class="project-tag">Services Publics</span>
-                <span class="project-tag">Consulting</span>
+              <div class="skill-list" style="margin-top: 1rem">
+                <span class="tag" data-key="research.tag1"
+                  >Commerce International</span
+                >
+                <span class="tag" data-key="research.tag2"
+                  >Analyse Économique</span
+                >
+                <span class="tag" data-key="research.tag3"
+                  >Politique Commerciale</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="research-card">
+            <div class="research-header">
+              <span class="research-badge" data-key="research.completed"
+                >Complété</span
+              >
+              <h3 data-key="research.project2.title">
+                Readiness Numérique du Bénin
+              </h3>
+            </div>
+            <div class="research-content">
+              <p data-key="research.project2.desc">
+                Évaluation de la transformation digitale du Bénin depuis 2016,
+                analyse des plateformes d'e-gouvernance et recommandations.
+              </p>
+              <div class="skill-list" style="margin-top: 1rem">
+                <span class="tag" data-key="research.tag4"
+                  >Transformation Digitale</span
+                >
+                <span class="tag" data-key="research.tag5">E-Gouvernance</span>
+                <span class="tag" data-key="research.tag6"
+                  >Politiques Publiques</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="research-card">
+            <div class="research-header">
+              <span class="research-badge" data-key="research.consulting"
+                >Consulting</span
+              >
+              <h3 data-key="research.project3.title">
+                IA pour les Services Publics Togolais
+              </h3>
+            </div>
+            <div class="research-content">
+              <p data-key="research.project3.desc">
+                Étude des applications potentielles de l'intelligence
+                artificielle pour optimiser et moderniser les services publics
+                au Togo.
+              </p>
+              <div class="skill-list" style="margin-top: 1rem">
+                <span class="tag" data-key="research.tag7"
+                  >Intelligence Artificielle</span
+                >
+                <span class="tag" data-key="research.tag8"
+                  >Innovation Publique</span
+                >
+                <span class="tag" data-key="research.tag9"
+                  >Efficacité Administrative</span
+                >
               </div>
             </div>
           </div>
@@ -1064,7 +1228,9 @@
     >
       <div class="container">
         <div class="contact-box">
-          <h2 style="margin-bottom: 1rem">Un projet en tête ?</h2>
+          <h2 style="margin-bottom: 1rem" data-key="contact.title">
+            Collaborons Ensemble
+          </h2>
           <p
             style="
               color: var(--text-dim);
@@ -1073,17 +1239,20 @@
               margin-left: auto;
               margin-right: auto;
             "
+            data-key="contact.desc"
           >
-            Je suis ouvert aux opportunités de consultance, collaborations de
-            recherche et projets à fort impact socio-économique en Afrique.
+            Que vous ayez besoin d'expertise en analyse de projets ou de
+            compétences en recherche économique, je suis disponible pour
+            contribuer à vos initiatives.
           </p>
-          <!-- REMPLACER PAR VOTRE EMAIL -->
+
           <a
-            href="mailto:votre.email@exemple.tg"
+            href="mailto:kao.katala@exemple.tg"
             class="btn btn-primary"
             style="margin-bottom: 2rem"
+            data-key="contact.email"
           >
-            <i class="fas fa-envelope"></i> Envoyez un Email
+            <i class="fas fa-envelope"></i> Envoyer un Email
           </a>
 
           <div class="contact-info">
@@ -1092,32 +1261,33 @@
                 <i class="fas fa-map-marker-alt"></i>
               </div>
               <div>
-                <h4>Localisation</h4>
-                <!-- REMPLACER PAR VOTRE VILLE/PAYS -->
+                <h4 data-key="contact.location">Localisation</h4>
                 <p style="color: var(--text-dim); font-size: 0.9rem">
                   Lomé, Togo
                 </p>
               </div>
             </div>
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-language"></i>
-              </div>
-              <div>
-                <h4>Langues</h4>
-                <p style="color: var(--text-dim); font-size: 0.9rem">
-                  Français & Anglais
-                </p>
-              </div>
-            </div>
+
             <div class="contact-item">
               <div class="contact-icon">
                 <i class="fas fa-briefcase"></i>
               </div>
               <div>
-                <h4>Disponibilité</h4>
+                <h4 data-key="contact.expertise">Expertises</h4>
                 <p style="color: var(--text-dim); font-size: 0.9rem">
-                  Ouvert aux collaborations
+                  Analyse de Projets & Recherche
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h4 data-key="contact.availability">Disponibilité</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem">
+                  Collaborations & Consultance
                 </p>
               </div>
             </div>
@@ -1129,29 +1299,390 @@
     <footer>
       <div class="container">
         <div class="social-links">
-          <a href="https://linkedin.com/in/vprofil" target="_blank"
+          <a href="https://linkedin.com/in/kaokatala" target="_blank"
             ><i class="fab fa-linkedin-in"></i
           ></a>
-          <a href="https://twitter.com/votreprofil" target="_blank"
+          <a href="https://twitter.com/kaokatala" target="_blank"
             ><i class="fab fa-twitter"></i
           ></a>
-          <a href="https://github.com/votreprofil" target="_blank"
+          <a href="https://github.com/kaokatala" target="_blank"
             ><i class="fab fa-github"></i
           ></a>
-          <a href="mailto:votre.email@exemple.tg"
+          <a href="mailto:kao.katala@exemple.tg"
             ><i class="fas fa-envelope"></i
           ></a>
         </div>
 
-        <p>
-          &copy; 2026 • Kao (Emmanuel) KATALA • Économiste & Analyste de Projets
-          • Conçu avec excellence pour un impact global.
+        <p data-key="footer.copyright">
+          © 2026 • Kao (Emmanuel) KATALA • Économiste - Analyste de Projets &
+          Chercheur • Conçu pour l'impact
         </p>
       </div>
     </footer>
 
     <script>
-      // Menu mobile
+      // ========== GESTION DES LANGUES ==========
+
+      const translations = {
+        fr: {
+          // Navigation
+          "nav.home": "Accueil",
+          "nav.focus": "Domaines d'Expertise",
+          "nav.skills": "Compétences",
+          "nav.experience": "Parcours",
+          "nav.research": "Recherche",
+          "nav.contact": "Contact",
+
+          // Hero
+          "hero.badgeAnalyst": "Analyste de Projets",
+          "hero.badgeResearch": "Chercheur en Économie",
+          "hero.subtitle": "Économiste | Analyste Stratégique | Chercheur",
+          "hero.description":
+            "Spécialiste en analyse économique et gestion de projets, je combine expertise technique et recherche appliquée pour développer des solutions innovantes en matière de développement économique.",
+          "hero.mission":
+            "Ma mission : transformer des données complexes en stratégies actionnables et contribuer à la recherche économique qui façonne les politiques de développement en Afrique.",
+          "hero.explore": "Explorer mes expertises",
+          "hero.contact": "Collaborer",
+
+          // Focus
+          "focus.title": "Dualité d'Expertise",
+          "focus.subtitle":
+            "Deux approches complémentaires pour aborder les défis du développement économique",
+          "focus.analystTitle": "Analyste de Projets",
+          "focus.analystDesc":
+            "Spécialiste en conception, suivi et évaluation de projets de développement. Je transforme des objectifs complexes en plans d'action mesurables et efficaces.",
+          "focus.analyst1":
+            "Gestion du cycle de projet (conception à l'évaluation)",
+          "focus.analyst2": "Analyse coûts-bénéfices et études de faisabilité",
+          "focus.analyst3": "Suivi-évaluation et indicateurs de performance",
+          "focus.analyst4": "Optimisation des processus et automatisation",
+          "focus.analyst5": "Reporting stratégique et tableaux de bord",
+          "focus.researchTitle": "Chercheur en Économie",
+          "focus.researchDesc":
+            "Investigation approfondie des phénomènes économiques pour produire des connaissances qui éclairent les politiques publiques et les stratégies de développement.",
+          "focus.research1": "Recherche économique appliquée",
+          "focus.research2": "Analyse quantitative et qualitative",
+          "focus.research3": "Études d'impact et évaluations",
+          "focus.research4": "Modélisation macroéconomique",
+          "focus.research5": "Publications et diffusion scientifique",
+
+          // Skills
+          "skills.title": "Compétences Techniques",
+          "skills.analytics": "Analyse de Données",
+          "skills.analyticsDesc":
+            "Outils et méthodes pour l'analyse quantitative",
+          "skills.statistics": "Statistiques",
+          "skills.econometrics": "Économétrie",
+          "skills.dataViz": "Visualisation",
+          "skills.python": "Python",
+          "skills.excel": "Excel Avancé",
+          "skills.survey": "Enquêtes",
+          "skills.project": "Gestion de Projet",
+          "skills.projectDesc": "Méthodologies et outils de gestion",
+          "skills.pmMethod": "Méthodes Agiles",
+          "skills.logframe": "Cadre Logique",
+          "skills.monitoring": "Suivi-Évaluation",
+          "skills.risk": "Gestion des Risques",
+          "skills.budget": "Budgetisation",
+          "skills.reporting": "Reporting",
+          "skills.ai": "Intelligence Artificielle",
+          "skills.aiDesc": "Applications de l'IA en économie et gestion",
+          "skills.generativeAI": "IA Générative",
+          "skills.automation": "Automatisation",
+          "skills.prompt": "Prompt Engineering",
+          "skills.dataMining": "Data Mining",
+          "skills.prediction": "Modèles Prédictifs",
+          "skills.development": "Développement Économique",
+          "skills.developmentDesc": "Expertise sectorielle et politique",
+          "skills.macro": "Macroéconomie",
+          "skills.trade": "Commerce International",
+          "skills.policy": "Politiques Publiques",
+          "skills.digital": "Transformation Digitale",
+          "skills.sustainability": "Développement Durable",
+          "skills.research": "Recherche Appliquée",
+          "skills.researchDesc": "Méthodologies de recherche scientifique",
+          "skills.methodology": "Méthodologie",
+          "skills.dataCollect": "Collecte de Données",
+          "skills.analysis": "Analyse Qualitative",
+          "skills.writing": "Rédaction Scientifique",
+          "skills.publication": "Publication",
+          "skills.languages": "Langues",
+          "skills.languagesDesc": "Communication professionnelle",
+          "skills.french": "Français (Natale)",
+          "skills.english": "Anglais (Courant)",
+
+          // Experience
+          "experience.title": "Parcours Professionnel",
+          "experience.job1.title": "Graduate Associate - Analyse de Projets",
+          "experience.job1.task1":
+            "Support à la gestion et suivi de projets de développement",
+          "experience.job1.task2":
+            "Automatisation des processus administratifs",
+          "experience.job1.task3":
+            "Analyse de données et reporting stratégique",
+          "experience.job2.title": "Chercheur en Économie",
+          "experience.job2.task1": "Rédaction de propositions de recherche",
+          "experience.job2.task2": "Collecte et analyse de données économiques",
+          "experience.job2.task3": "Coordination de projets de recherche",
+
+          // Research
+          "research.title": "Projets de Recherche",
+          "research.subtitle":
+            "Investigations économiques produisant des connaissances pour l'action",
+          "research.onGoing": "En Cours",
+          "research.project1.title": "Le Profil Commercial du Togo",
+          "research.project1.desc":
+            "Analyse approfondie de la performance commerciale internationale du Togo, évaluation des accords commerciaux et recommandations stratégiques.",
+          "research.completed": "Complété",
+          "research.project2.title": "Readiness Numérique du Bénin",
+          "research.project2.desc":
+            "Évaluation de la transformation digitale du Bénin depuis 2016, analyse des plateformes d'e-gouvernance et recommandations.",
+          "research.consulting": "Consulting",
+          "research.project3.title": "IA pour les Services Publics Togolais",
+          "research.project3.desc":
+            "Étude des applications potentielles de l'intelligence artificielle pour optimiser et moderniser les services publics au Togo.",
+          "research.tag1": "Commerce International",
+          "research.tag2": "Analyse Économique",
+          "research.tag3": "Politique Commerciale",
+          "research.tag4": "Transformation Digitale",
+          "research.tag5": "E-Gouvernance",
+          "research.tag6": "Politiques Publiques",
+          "research.tag7": "Intelligence Artificielle",
+          "research.tag8": "Innovation Publique",
+          "research.tag9": "Efficacité Administrative",
+
+          // Contact
+          "contact.title": "Collaborons Ensemble",
+          "contact.desc":
+            "Que vous ayez besoin d'expertise en analyse de projets ou de compétences en recherche économique, je suis disponible pour contribuer à vos initiatives.",
+          "contact.email": "Envoyer un Email",
+          "contact.location": "Localisation",
+          "contact.expertise": "Expertises",
+          "contact.availability": "Disponibilité",
+
+          // Footer
+          "footer.copyright":
+            "© 2026 • Kao (Emmanuel) KATALA • Économiste - Analyste de Projets & Chercheur • Conçu pour l'impact",
+        },
+
+        en: {
+          // Navigation
+          "nav.home": "Home",
+          "nav.focus": "Areas of Expertise",
+          "nav.skills": "Skills",
+          "nav.experience": "Experience",
+          "nav.research": "Research",
+          "nav.contact": "Contact",
+
+          // Hero
+          "hero.badgeAnalyst": "Project Analyst",
+          "hero.badgeResearch": "Economics Researcher",
+          "hero.subtitle": "Economist | Strategic Analyst | Researcher",
+          "hero.description":
+            "Specialist in economic analysis and project management, I combine technical expertise and applied research to develop innovative solutions for economic development.",
+          "hero.mission":
+            "My mission: transform complex data into actionable strategies and contribute to economic research that shapes development policies in Africa.",
+          "hero.explore": "Explore my expertise",
+          "hero.contact": "Collaborate",
+
+          // Focus
+          "focus.title": "Dual Expertise",
+          "focus.subtitle":
+            "Two complementary approaches to address economic development challenges",
+          "focus.analystTitle": "Project Analyst",
+          "focus.analystDesc":
+            "Specialist in design, monitoring and evaluation of development projects. I transform complex objectives into measurable and effective action plans.",
+          "focus.analyst1": "Project cycle management (design to evaluation)",
+          "focus.analyst2": "Cost-benefit analysis and feasibility studies",
+          "focus.analyst3": "Monitoring-evaluation and performance indicators",
+          "focus.analyst4": "Process optimization and automation",
+          "focus.analyst5": "Strategic reporting and dashboards",
+          "focus.researchTitle": "Economics Researcher",
+          "focus.researchDesc":
+            "In-depth investigation of economic phenomena to produce knowledge that informs public policies and development strategies.",
+          "focus.research1": "Applied economic research",
+          "focus.research2": "Quantitative and qualitative analysis",
+          "focus.research3": "Impact studies and evaluations",
+          "focus.research4": "Macroeconomic modeling",
+          "focus.research5": "Publications and scientific dissemination",
+
+          // Skills
+          "skills.title": "Technical Skills",
+          "skills.analytics": "Data Analysis",
+          "skills.analyticsDesc": "Tools and methods for quantitative analysis",
+          "skills.statistics": "Statistics",
+          "skills.econometrics": "Econometrics",
+          "skills.dataViz": "Visualization",
+          "skills.python": "Python",
+          "skills.excel": "Advanced Excel",
+          "skills.survey": "Surveys",
+          "skills.project": "Project Management",
+          "skills.projectDesc": "Management methodologies and tools",
+          "skills.pmMethod": "Agile Methods",
+          "skills.logframe": "Logical Framework",
+          "skills.monitoring": "Monitoring-Evaluation",
+          "skills.risk": "Risk Management",
+          "skills.budget": "Budgeting",
+          "skills.reporting": "Reporting",
+          "skills.ai": "Artificial Intelligence",
+          "skills.aiDesc": "AI applications in economics and management",
+          "skills.generativeAI": "Generative AI",
+          "skills.automation": "Automation",
+          "skills.prompt": "Prompt Engineering",
+          "skills.dataMining": "Data Mining",
+          "skills.prediction": "Predictive Models",
+          "skills.development": "Economic Development",
+          "skills.developmentDesc": "Sectoral and policy expertise",
+          "skills.macro": "Macroeconomics",
+          "skills.trade": "International Trade",
+          "skills.policy": "Public Policies",
+          "skills.digital": "Digital Transformation",
+          "skills.sustainability": "Sustainable Development",
+          "skills.research": "Applied Research",
+          "skills.researchDesc": "Scientific research methodologies",
+          "skills.methodology": "Methodology",
+          "skills.dataCollect": "Data Collection",
+          "skills.analysis": "Qualitative Analysis",
+          "skills.writing": "Scientific Writing",
+          "skills.publication": "Publication",
+          "skills.languages": "Languages",
+          "skills.languagesDesc": "Professional communication",
+          "skills.french": "French (Native)",
+          "skills.english": "English (Fluent)",
+
+          // Experience
+          "experience.title": "Professional Experience",
+          "experience.job1.title": "Graduate Associate - Project Analysis",
+          "experience.job1.task1":
+            "Support for development project management and monitoring",
+          "experience.job1.task2": "Administrative process automation",
+          "experience.job1.task3": "Data analysis and strategic reporting",
+          "experience.job2.title": "Economics Researcher",
+          "experience.job2.task1": "Research proposal writing",
+          "experience.job2.task2": "Collection and analysis of economic data",
+          "experience.job2.task3": "Research project coordination",
+
+          // Research
+          "research.title": "Research Projects",
+          "research.subtitle":
+            "Economic investigations producing knowledge for action",
+          "research.onGoing": "Ongoing",
+          "research.project1.title": "Togo's Trade Profile",
+          "research.project1.desc":
+            "In-depth analysis of Togo's international trade performance, evaluation of trade agreements and strategic recommendations.",
+          "research.completed": "Completed",
+          "research.project2.title": "Benin's Digital Readiness",
+          "research.project2.desc":
+            "Assessment of Benin's digital transformation since 2016, analysis of e-governance platforms and recommendations.",
+          "research.consulting": "Consulting",
+          "research.project3.title": "AI for Togolese Public Services",
+          "research.project3.desc":
+            "Study of potential applications of artificial intelligence to optimize and modernize public services in Togo.",
+          "research.tag1": "International Trade",
+          "research.tag2": "Economic Analysis",
+          "research.tag3": "Trade Policy",
+          "research.tag4": "Digital Transformation",
+          "research.tag5": "E-Governance",
+          "research.tag6": "Public Policies",
+          "research.tag7": "Artificial Intelligence",
+          "research.tag8": "Public Innovation",
+          "research.tag9": "Administrative Efficiency",
+
+          // Contact
+          "contact.title": "Let's Collaborate",
+          "contact.desc":
+            "Whether you need project analysis expertise or economic research skills, I am available to contribute to your initiatives.",
+          "contact.email": "Send Email",
+          "contact.location": "Location",
+          "contact.expertise": "Expertise",
+          "contact.availability": "Availability",
+
+          // Footer
+          "footer.copyright":
+            "© 2026 • Kao (Emmanuel) KATALA • Economist - Project Analyst & Researcher • Designed for Impact",
+        },
+      };
+
+      let currentLang = "en";
+
+      function changeLanguage(lang) {
+        currentLang = lang;
+
+        const currentFlag = document.getElementById("currentFlag");
+        const currentLanguage = document.getElementById("currentLanguage");
+        const languageOptions = document.querySelectorAll(".language-option");
+
+        if (lang === "fr") {
+          currentFlag.src = "https://flagcdn.com/w40/fr.png";
+          currentFlag.alt = "Français";
+          currentLanguage.textContent = "FR";
+        } else {
+          currentFlag.src = "https://flagcdn.com/w40/gb.png";
+          currentFlag.alt = "English";
+          currentLanguage.textContent = "EN";
+        }
+
+        languageOptions.forEach((option) => {
+          if (option.dataset.lang === lang) {
+            option.classList.add("active");
+          } else {
+            option.classList.remove("active");
+          }
+        });
+
+        const elements = document.querySelectorAll("[data-key]");
+        elements.forEach((element) => {
+          const key = element.getAttribute("data-key");
+          if (translations[lang] && translations[lang][key]) {
+            if (element.innerHTML.includes("hero-highlight")) {
+              const tempDiv = document.createElement("div");
+              tempDiv.innerHTML = translations[lang][key];
+              const highlightSpans =
+                element.querySelectorAll(".hero-highlight");
+              const newHighlightSpans =
+                tempDiv.querySelectorAll(".hero-highlight");
+
+              if (highlightSpans.length === newHighlightSpans.length) {
+                highlightSpans.forEach((span, index) => {
+                  span.textContent = newHighlightSpans[index].textContent;
+                });
+
+                const textParts = translations[lang][key].split(
+                  /<span class="hero-highlight">|<\/span>/
+                );
+                let newHTML = "";
+                for (let i = 0; i < textParts.length; i++) {
+                  if (i % 2 === 0) {
+                    newHTML += textParts[i];
+                  } else {
+                    newHTML += `<span class="hero-highlight">${textParts[i]}</span>`;
+                  }
+                }
+                element.innerHTML = newHTML;
+              } else {
+                element.innerHTML = translations[lang][key];
+              }
+            } else {
+              element.textContent = translations[lang][key];
+            }
+          }
+        });
+
+        document.documentElement.lang = lang;
+        localStorage.setItem("preferredLanguage", lang);
+        document.getElementById("languageDropdown").classList.remove("active");
+      }
+
+      function initLanguage() {
+        const savedLang = localStorage.getItem("preferredLanguage");
+        if (savedLang) {
+          changeLanguage(savedLang);
+        } else {
+          changeLanguage("en");
+        }
+      }
+
+      // ========== MENU MOBILE ==========
       const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
       const navLinks = document.querySelector(".nav-links");
 
@@ -1162,7 +1693,6 @@
           : '<i class="fas fa-bars"></i>';
       });
 
-      // Fermer le menu mobile en cliquant sur un lien
       document.querySelectorAll(".nav-links a").forEach((link) => {
         link.addEventListener("click", () => {
           navLinks.classList.remove("active");
@@ -1170,7 +1700,27 @@
         });
       });
 
-      // Animation au défilement
+      // ========== LANGUAGE DROPDOWN ==========
+      const languageSelector = document.getElementById("languageSelector");
+      const languageDropdown = document.getElementById("languageDropdown");
+
+      languageSelector.addEventListener("click", (e) => {
+        e.stopPropagation();
+        languageDropdown.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".language-option").forEach((option) => {
+        option.addEventListener("click", () => {
+          const lang = option.getAttribute("data-lang");
+          changeLanguage(lang);
+        });
+      });
+
+      document.addEventListener("click", () => {
+        languageDropdown.classList.remove("active");
+      });
+
+      // ========== ANIMATIONS ==========
       const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
@@ -1185,9 +1735,8 @@
         });
       }, observerOptions);
 
-      // Animation pour les cartes
       const cards = document.querySelectorAll(
-        ".skill-card, .cert-card, .project-card, .exp-card"
+        ".skill-card, .focus-card, .research-card, .exp-card"
       );
       cards.forEach((card) => {
         card.style.opacity = "0";
@@ -1197,7 +1746,6 @@
         observer.observe(card);
       });
 
-      // Animation pour la timeline
       const timelineItems = document.querySelectorAll(".timeline-item");
       timelineItems.forEach((item) => {
         item.style.opacity = "0";
@@ -1217,6 +1765,8 @@
       }, observerOptions);
 
       timelineItems.forEach((item) => timelineObserver.observe(item));
+
+      window.addEventListener("DOMContentLoaded", initLanguage);
     </script>
   </body>
 </html>
